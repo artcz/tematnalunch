@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+
+<body onclick="Change()">
+
+<style>
+body { background: #f5f514; color: black; display: flex; font-family: sans-serif; word-break: break-word}
+h2 { text-align: center; font-weight: bold; margin-top: 1em; font-size: 35em; margin: auto; line-height: .8em; letter-spacing: -.05em}
+#beenthere { margin-top: 30em; display: none;}
+</style>
+
+
+<h2 id="temat">Hokej</h2>
+<pre id="beenthere"></pre>
+
+<script>
+var tematy = [
+        "Polityka",
+        "Duduk",
+        "Geopolityka",
+        "Fizyka Kwantowa",
+        "Sztuczna inteligencja",
+        "Blockchain",
+        "Frugo",
+        "Ciężki Temat",
+        "Seriale",
+        "Oczyszczacze powietrza",
+        "Programowanie",
+        "Książki",
+        "Meetupy",
+        "Rekrutacja",
+        "Wisła Kraków",
+        "Stadiony",
+        "Skarżysko Kamienna",
+        "Brexit",
+        "Goodlood",
+        "Thinkpady są fajniejsze",
+        "Samochody",
+        ];
+var beenthere = [];
+var too_big = 1000;
+
+function Change() {
+        temat = document.getElementById("temat")
+        current = temat.innerText;
+        temat.innerText = "wait for it...";
+
+        beenthere.push(current);
+        nowy = current;
+        counter = 0;
+        while(beenthere.includes(nowy)) {
+                nowy = tematy[Math.floor(Math.random()*tematy.length)];
+                counter++; // break before infinity
+                if(counter > too_big) { nowy="Random()"; break }
+        }
+
+        setTimeout(function() { document.getElementById("temat").innerText = nowy }, 2000);
+}
+</script>
+
+</body>
